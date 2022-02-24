@@ -31,3 +31,5 @@ $_database = "je3ou4murhtmni1n";
 //echo "host:$_server <br> ";
 $connect = new connect($_server, $_username, $_password, $_database);
 echo "connect:: " . $connect->connect_db();
+?>
+<h1>hello world</h1>
