@@ -4,12 +4,12 @@ ini_set('display_errors',true);
 
 //header('Content-Type: text/plain; charset=utf-8');
 
-include_once("./classes/connect.php");
+/*include_once("./classes/connect.php");
 include_once("./classes/passwordprotocol.php");
 include_once("./classes/uaccount.php");
 include("./functions/functions00.php");
 
-/*$_server = "localhost:3307";
+$_server = "localhost:3307";
 $_username = "root";
 $_password = "";
 $_database = "simba_db";
@@ -31,7 +31,7 @@ $_password = "sqsgqjs9e3c5ngng";
 
 $_database = "je3ou4murhtmni1n";
 //echo "host:$_server <br> ";
-$connect = new connect($_server, $_username, $_password, $_database);
-echo "connect:: " . $connect->connect_db();
+//$connect = new connect($_server, $_username, $_password, $_database);
+//echo "connect:: " . $connect->connect_db();
 ?>
 <h1>hello world</h1>
