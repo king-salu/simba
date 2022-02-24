@@ -22,9 +22,9 @@ $uurl = 'JAWSDB_URL';
 //file_put_contents("php://stderr", "something happened!");
 //$env_var = getenv($uurl,false);
 //$env_var = $_SERVER[$uurl];
-//echo "<pre> set";
-//var_dump($_SERVER);
-//echo "</pre>";
+echo "<pre> set";
+var_dump($_SERVER);
+echo "</pre>";
 
 $_server = "ilzyz0heng1bygi8.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306";
 $_username = "m8tblwbpbuzeuuq7";
