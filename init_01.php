@@ -31,6 +31,7 @@ $_username = "m8tblwbpbuzeuuq7";
 $_password = "sqsgqjs9e3c5ngng";
 
 $_database = "je3ou4murhtmni1n";
+error_log("hello, this is a test!");
 //echo "host:$_server <br> ";
 //$connect = new connect($_server, $_username, $_password, $_database);
 //echo "connect:: " . $connect->connect_db();
