@@ -20,9 +20,9 @@ $_database = "simba_db";
 //$uurl = "mysql://m645bjovj4jgx7c0:ul3c5ywzkm7e128p@ilzyz0heng1bygi8.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/xw33xn96e8tl958g";
 $uurl = 'JAWSDB_URL';
 //$env_var = getenv($uurl,false);
-$env_var = $_SERVER[$uurl];
+//$env_var = $_SERVER[$uurl];
 echo "<pre> set";
-var_dump($env_var);
+var_dump($_SERVER);
 echo "</pre>";
 
 $_server = "ilzyz0heng1bygi8.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306";
