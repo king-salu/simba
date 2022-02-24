@@ -23,5 +23,5 @@ $_password = "sqsgqjs9e3c5ngng";
 
 $_database = "je3ou4murhtmni1n";
 //echo "host:$_server <br> ";
-$connect = new connect($_server, $_username, $_password, $_database);
-echo "connect:: " . $connect->connect_db();
+//$connect = new connect($_server, $_username, $_password, $_database);
+//echo "connect:: " . $connect->connect_db();
