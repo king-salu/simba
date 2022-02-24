@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors',true);
+
 include_once("./classes/connect.php");
 include_once("./classes/passwordprotocol.php");
 include_once("./classes/uaccount.php");
