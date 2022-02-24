@@ -105,6 +105,8 @@ function validate_processdata($action, $rdata = array(), $stage = 0)
                 $error = "email field can't be empty";
                 $step = 2;
             } else if ($_status) {
+                print_r($rdata);
+                die();
                 $exists = get_userinfo('', $email);
                 if (!empty($exists)) {
                     $_status = false;
