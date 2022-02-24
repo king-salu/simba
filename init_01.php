@@ -35,5 +35,12 @@ error_log("hello, this is a test!");
 //echo "host:$_server <br> ";
 $connect = new connect($_server, $_username, $_password, $_database);
 echo "connect:: " . $connect->connect_db();
+$connect->exec_query("CREATE TABLE IF NOT EXISTS `activity_record` (
+    `type` int(11) NOT NULL,
+    `activity` varchar(50) NOT NULL,
+    `act_mode` int(11) NOT NULL,
+    `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `member_id` int(11) NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 ?>
 <h1>hello world</h1>
