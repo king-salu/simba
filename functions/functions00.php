@@ -84,7 +84,7 @@ function validate_processdata($action, $rdata = array(), $stage = 0)
 
             $fname = (isset($rdata['fname'])) ? $rdata['fname'] : '';
             $lname = (isset($rdata['lname'])) ? $rdata['lname'] : '';
-            $email = (isset($rdata['email'])) ? $rdata['email'] : '';
+            $email = (isset($rdata['access'])) ? $rdata['access'] : '';
             $pass1 = (isset($rdata['pass1'])) ? $rdata['pass1'] : '';
             $pass2 = (isset($rdata['pass2'])) ? $rdata['pass2'] : '';
 
