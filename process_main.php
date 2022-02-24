@@ -34,12 +34,12 @@ if (isset($_REQUEST['action'])) {
 
         case "signup":
             $validatei = validate_processdata($req_action, $_REQUEST);
-            print_r($validatei);
-            die();
+            //print_r($validatei);
+            //die();
             if ($validatei[0]) {
                 $req_fname = (isset($_REQUEST['fname'])) ? $_REQUEST['fname'] : '';
                 $req_lname = (isset($_REQUEST['lname'])) ? $_REQUEST['lname'] : '';
-                $req_email = (isset($_REQUEST['email'])) ? $_REQUEST['email'] : '';
+                $req_email = (isset($_REQUEST['access'])) ? $_REQUEST['access'] : '';
                 $req_pass1 = (isset($_REQUEST['pass1'])) ? $_REQUEST['pass1'] : '';
 
                 $new_user_id = gen_user_id();
