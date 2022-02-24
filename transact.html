@@ -1,0 +1,215 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Transact || SIMBA</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800i" rel="stylesheet">
+
+        <!-- favicon icon -->
+        <link rel="shortcut icon" type="images/png" href="images/favicon.ico">
+
+		<!-- all css here -->
+
+		<link rel="stylesheet" href="style.css">
+		<!-- modernizr css -->
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!-- Add your site or application content here -->
+        <!--Start-Preloader-area-->
+        <div class="preloader">
+            <div class="loading-center">
+                <div class="loading-center-absolute">
+                    <div class="object object_one"></div>
+                    <div class="object object_two"></div>
+                    <div class="object object_three"></div>
+                </div>
+            </div>
+        </div>
+        <!--end-Preloader-area-->
+        <!--header-area-start-->
+        <!--Start-main-wrapper-->
+        <div class="checkout-page">
+            <!--Start-Header-area-->
+            <header>
+                
+            </header>
+            <!--End-Header-area-->
+            <!-- checkout-area start -->
+            <div class="checkout-area">
+                <div class="container">
+                    <div class="row">
+                        <form action="#" name="transc_form">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="your-order">
+                                    <h3>TRANSACT</h3>
+                                    <div class="your-order-table table-responsive">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="checkout-form-list">
+                                                <label>
+                                                    Deposit <input type="radio" title="Deposit" name="action" id="transc_dep" value="deposit"/>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="checkout-form-list">
+                                                <label>
+                                                    Transfer <input type="radio" title="Transfer" name="action" id="transc_transf" value="transfer"/>
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" name="transfer_div">
+                                            <div class="checkout-form-list">
+                                                <label>Beneficiary</label>
+                                                <input type="text" placeholder="Receiver" name="acct_to" />
+                                                <div id="tacc_name" hidden>
+                                                    <small class="form-text text-muted"></small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        
+                                        
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="checkout-form-list">
+                                                <label>
+                                                    Amount in
+                                                    <select name="src_cur">
+                                                        <option value="USD"> $ - Dollar </option>
+                                                        <option value="NGN"> ₦ - Naira  </option>
+                                                        <option value="EUR"> € - Euro   </option>
+                                                    </select>
+                                                </label>
+                                                
+                                                <input type="number" placeholder="" name="cur_value"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" name="transfer_div">
+                                            <div class="checkout-form-list">
+                                                <label>Target Currency</label>
+                                                <select name="targ_cur">
+                                                    <option value="USD"> $ - Dollar </option>
+                                                    <option value="NGN"> ₦ - Naira  </option>
+                                                    <option value="EUR"> € - Euro   </option>
+                                                </select>
+                                            </div>
+
+                                            <div id="feedbk">
+                                                <small class="form-text text-muted">feedback o!</small>
+                                            </div>
+                                        </div>
+
+                                        
+
+                                        <!--div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="checkout-form-list">
+                                                <label>Card Number</label>
+                                                <input type="text" placeholder="" />
+                                            </div>
+                                        </div-->
+                                        
+
+                                    </div>
+                                    <div class="payment-method">
+                                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                          <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingOne">
+                                              <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                  Deposit
+                                                </a>
+                                              </h4>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                              <div class="panel-body">
+                                                <p>Make your payment directly into your SIMBA account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingTwo">
+                                              <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                  Transfer
+                                                </a>
+                                              </h4>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                              <div class="panel-body">
+                                                 <p>Pay money </p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="order-button-payment">
+                                            <input type="submit" value="Complete Payment" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- checkout-area end -->
+            <!--Start-footer-wrap-->
+            <footer class="footer-area">
+            </footer>
+            <!--End-footer-wrap-->
+
+        </div>
+        <!--End-main-wrapper-->
+
+		<!-- all js here -->
+		<!-- jquery latest version -->
+        <script src="js/vendor/jquery-1.12.0.min.js"></script>
+        <!--cookies js-->
+        <script src="js/custom/cookies.js"></script>
+
+        <!-- PageScript02 js -->
+        <script src="js/custom/PageScript02.js"></script>
+
+		<!-- bootstrap js -->
+        <script src="js/bootstrap.min.js"></script>
+		<!-- owl.carousel js -->
+        <script src="js/owl.carousel.min.js"></script>
+		<!-- meanmenu.js -->
+        <script src="js/jquery.meanmenu.js"></script>
+		<!-- nivo.slider.js -->
+        <script src="lib/js/jquery.nivo.slider.js" type="text/javascript"></script>
+        <script src="lib/home.js" type="text/javascript"></script>
+		<!-- jquery-ui js -->
+        <script src="js/jquery-ui.min.js"></script>
+		<!-- scrollUp.min.js -->
+        <script src="js/jquery.scrollUp.min.js"></script>
+		<!-- jquery.parallax.js -->
+        <script src="js/jquery.parallax.js"></script>
+		<!-- sticky.js -->
+        <script src="js/jquery.sticky.js"></script>
+		<!-- jquery.simpleGallery.min.js -->
+        <script src="js/jquery.simpleGallery.min.js"></script>
+        <script src="js/jquery.simpleLens.min.js"></script>
+        <!-- countdown.min.js -->
+        <script src="js/jquery.countdown.min.js"></script>
+        <!-- isotope.pkgd.min -->
+        <script src="js/isotope.pkgd.min.js"></script>
+		<!-- wow js -->
+        <script src="js/wow.min.js"></script>
+		<!-- plugins js -->
+        <script src="js/plugins.js"></script>
+		<!-- main js -->
+        <script src="js/main.js"></script>
+    </body>
+</html>
