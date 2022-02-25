@@ -64,9 +64,11 @@ class connect
                 }
                 $query .= ") VALUES (";
 
+                print_r($_keysslashed);
                
                 $values = array_values($rdata);
                 foreach ($values as $key => $value) {
+                     echo "$value ::sdget:: ".addslashes($value);
                     $value  = (in_array($key,$_keysslashed))? addslashes($value) : $value;
                     $query .= "'$value'" . ($key + 1 < count($values) ? "," : "");
                 }
