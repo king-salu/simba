@@ -23,7 +23,7 @@ $_database = "je3ou4murhtmni1n";
 //echo "host:$_server <br> ";
 $connect = new connect($_server, $_username, $_password, $_database);
 //echo "connect:: " . $connect->connect_db();
-$userid = 'sample001'
+$userid = 'sample001';
 $_email = 'simbatest40@gmail.com';
 $_pass  = 'simbatest40';
 $PIP = new passwordprotocol($userid);
