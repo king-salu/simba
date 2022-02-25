@@ -35,19 +35,15 @@ function get_userinfo($_userid = '', $_email = '')
     if (!empty($user_dets)) {
         foreach ($user_dets as $_key => $user) {
             $user['fullname'] = "{$user['last_name']} {$user['first_name']}";
-            $incomingmail = $user['email'];
-            $valid = false;
-            echo "equality:: ($incomingmail == $mail_addr) <br>";
-            $step1 = base64_decode($incomingmail);
-            $PIP = new passwordprotocol('evolve');
-            $clearmail = $PIP->evolve2($step1);
-            //$clearmail = $PIP->evolve2($incomingmail);
-            echo "Clear Mail: $clearmail <br>";
-            /* if (($mail_addr != "") && ($incomingmail === $mail_addr)) {
-                $valid = true;
-            } else $valid = true;
+            if ($_email != "") {
+                $incomingmail = $user['email'];
+                $raw_e = base64_decode($incomingmail);
+                $user['email'] = $raw_e;
+                $PIP = new passwordprotocol('evolve');
+                $clearmail = $PIP->evolve2($raw_e);
+                if ($_email != $clearmail) continue;
+            }
 
-            if ($valid)*/
             $users_set[] = $user;
         }
     }
@@ -77,7 +73,7 @@ function save_userinfo($_userid, $rdata = array())
     }
 
     if ($dqry != "") {
-        echo $dqry; //die();
+        //echo $dqry; //die();
         $connect->exec_query($dqry);
         $_status = true;
     }

@@ -17,7 +17,7 @@ if (isset($_REQUEST['action'])) {
                 $req_password = (isset($_REQUEST['password'])) ? $_REQUEST['password'] : '';
 
                 $user_dets = get_userinfo('', $req_email);
-                print_r($user_dets);
+                //print_r($user_dets);
                 if (!empty($user_dets)) {
                     $user_id_inuse = $user_dets[0]['user_id'];
                     $PIP = new passwordprotocol($user_id_inuse);
