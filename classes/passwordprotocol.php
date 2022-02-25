@@ -73,7 +73,7 @@ class passwordprotocol
         //echo "dqry:: $dqry";
         $udata = $connect->exec_fquery($dqry);
         if (!empty($udata)) {
-            $cpasswrd = $udata[0]['password'];
+            $cpasswrd = utf8_decode($udata[0]['password']);
             //echo "password :" . $cpasswrd;
             $user_pass = $this->unmask_pass($cpasswrd, 2022, $op);
         }
