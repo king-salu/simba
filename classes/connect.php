@@ -78,9 +78,9 @@ class connect
         $result = array();
         if ($this->connect_db()) {
             //$query_code = utf8_encode($query);
-            $query_code = base64_encode($query);
+            //$query_code = base64_encode($query);
             try {
-                $stmt = $this->conn->query($query_code);
+                $stmt = $this->conn->query($query);
                 $result = $stmt->fetchAll();
             } catch (PDOException $ex) {
                 echo "Query failed: " . $ex->getMessage();
@@ -151,12 +151,15 @@ class connect
     public static function generate_part_query($rdata, $insert = true)
     {
         $query = "";
+        $cols_encoded = array('email', 'password');
         if (!empty($rdata)) {
             if ($insert) {
+                $encode_keys = array();
                 $query = "(";
                 $columns = array_keys($rdata);
                 foreach ($columns as $key => $column) {
                     $query .= "`$column`" . ($key + 1 < count($columns) ? "," : "");
+                    if ((in_array($column, $cols_encoded))) $encode_keys[] = $key;
                 }
                 $query .= ") VALUES (";
 
@@ -164,6 +167,7 @@ class connect
 
                 $values = array_values($rdata);
                 foreach ($values as $key => $value) {
+                    if (in_array($key, $encode_keys)) $value = base64_encode($value);
                     $query .= "'$value'" . ($key + 1 < count($values) ? "," : "");
                 }
 
