@@ -24,7 +24,7 @@ $_database = "je3ou4murhtmni1n";
 //echo "host:$_server <br> "; die();
 $connect = new connect($_server, $_username, $_password, $_database);
 //echo "connect:: " . $connect->connect_db();
-$userid = 'sample001';
+/*userid = 'sample001';
 $_email = 'simbatest40@gmail.com';
 $_pass  = 'simbatest40';
 $PIP = new passwordprotocol($userid);
@@ -37,4 +37,4 @@ $save_data['last_name'] = 'Onakoya';
 $save_data['email'] = $mail_e;
 $save_data['password'] = $pass_e;
 
-save_userinfo($userid, $save_data);
+save_userinfo($userid, $save_data);*/

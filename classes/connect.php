@@ -15,14 +15,12 @@ class connect
         $this->database = $db;
     }
 
-    public function connect_db($db = "")
+    public function connect_db_step($db = "")
     {
         $status = false;
         $db_inuse = $this->database;
         if (trim($db) != "") $db_inuse = $db;
-        echo "db= $db_inuse <br>";
         //try {
-        echo "certified";
         $this->conn = mysqli_connect($this->servername, $this->username, $this->password);
         //mysqli_set_charset($this->conn, 'utf8');
         if (true) {
@@ -38,7 +36,7 @@ class connect
         return $status;
     }
 
-    public function connect_db_pdo($db = "")
+    public function connect_db($db = "")
     {
         $status = false;
         $db_inuse = $this->database;
@@ -75,12 +73,13 @@ class connect
         return $status;
     }
 
-    public function exec_query_pdo($query)
+    public function exec_query($query)
     {
         $result = array();
         if ($this->connect_db()) {
+            $query_code = utf8_encode($query);
             try {
-                $stmt = $this->conn->query($query);
+                $stmt = $this->conn->query($query_code);
                 $result = $stmt->fetchAll();
             } catch (PDOException $ex) {
                 echo "Query failed: " . $ex->getMessage();
@@ -103,20 +102,13 @@ class connect
         return $result;
     }
 
-    public function exec_query($query)
+    public function exec_query_step($query)
     {
         $result = array();
-        echo "about connected... $query <br>";
-        //htmlspecialchars($query, ENT_NOQUOTES);
-        //$expected = htmlspecialchars_decode($query, ENT_NOQUOTES);
-        //$expected = html_entity_decode($query, ENT_NOQUOTES);
-        $expected = utf8_encode($query);
+        $query_code = utf8_encode($query);
         if ($this->connect_db()) {
-            echo " $expected :: connected! <br>";
-            $output = base64_decode($expected);
-            echo " $output :: converted! <br>";
             try {
-                $res = mysqli_query($this->conn, $expected);
+                $res = mysqli_query($this->conn, $query_code);
                 //$result = mysqli_fetch_array($res);
             } catch (Exception $ex) {
                 echo "Query failed: " . $ex->getMessage();
@@ -129,26 +121,19 @@ class connect
     public static function generate_part_query($rdata, $insert = true)
     {
         $query = "";
-        $slashes = array('email', 'password');
         if (!empty($rdata)) {
             if ($insert) {
-                $_keysslashed = array();
                 $query = "(";
                 $columns = array_keys($rdata);
-                //print_r($rdata); die();
                 foreach ($columns as $key => $column) {
                     $query .= "`$column`" . ($key + 1 < count($columns) ? "," : "");
-                    //$query .= "'".htmlentities($value,ENT_IGNORE)."'" . ($key + 1 < count($values) ? "," : "");
-                    if (in_array($column, $slashes)) $_keysslashed[] = $key;
                 }
                 $query .= ") VALUES (";
 
-                print_r($_keysslashed);
+                //print_r($_keysslashed);
 
                 $values = array_values($rdata);
                 foreach ($values as $key => $value) {
-                    echo "$value ::sdget:: " . addslashes($value);
-                    $value  = (in_array($key, $_keysslashed)) ? addslashes($value) : $value;
                     $query .= "'$value'" . ($key + 1 < count($values) ? "," : "");
                 }
 
@@ -157,7 +142,6 @@ class connect
                 $query = " SET ";
                 $index = 0;
                 foreach ($rdata as $column => $value) {
-                    $value  = (in_array($column, $slashes)) ? addslashes($value) : $value;
                     $query .= " `$column` = '$value' " . ($index + 1 < count($rdata) ? "," : "");
                     $index++;
                 }
