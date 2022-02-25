@@ -20,7 +20,7 @@ function get_userinfo($_userid = '', $_email = '')
         $mail_addr = $PIP->evolve($_email);
         //echo "mail address:$mail_addr <br>";
         //$mail_encde = utf8_decode($mail_addr);
-        //$dqry2 = ' and (email = "' . $mail_encde . '") ';
+        $dqry2 = ' and (email = "' . $mail_addr . '") ';
     }
 
     $dqry = $dqry0 . $dqry1 . $dqry2;
@@ -34,14 +34,14 @@ function get_userinfo($_userid = '', $_email = '')
         foreach ($user_dets as $_key => $user) {
             $user['fullname'] = "{$user['last_name']} {$user['first_name']}";
             $incomingmail = utf8_decode($user['email']);
-            $valid = false;
+            /* $valid = false;
             //echo "equality:: ($incomingmail == $mail_addr) <br>";
             if (($mail_addr != "") && ($incomingmail === $mail_addr)) {
                 $valid = true;
             } else $valid = true;
 
-            if ($valid)
-                $users_set[] = $user;
+            if ($valid)*/
+            $users_set[] = $user;
         }
     }
 
