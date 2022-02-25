@@ -35,10 +35,10 @@ function get_userinfo($_userid = '', $_email = '')
     if (!empty($user_dets)) {
         foreach ($user_dets as $_key => $user) {
             $user['fullname'] = "{$user['last_name']} {$user['first_name']}";
+            $incomingmail = $user['email'];
+            $raw_e = base64_decode($incomingmail);
+            $user['email'] = $raw_e;
             if ($_email != "") {
-                $incomingmail = $user['email'];
-                $raw_e = base64_decode($incomingmail);
-                $user['email'] = $raw_e;
                 $PIP = new passwordprotocol('evolve');
                 $clearmail = $PIP->evolve2($raw_e);
                 if ($_email != $clearmail) continue;
