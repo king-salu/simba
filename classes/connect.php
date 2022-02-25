@@ -61,6 +61,7 @@ class connect
         if (trim($db) != "") $db_inuse = $db;
         try {
             $this->conn = new mysqli($this->servername, $this->username, $this->password, $db_inuse);
+            mysqli_set_charset($this->conn, 'utf8');
             $status = true;
             if (mysqli_connect_errno()) {
                 echo "Connection failed: " . mysqli_connect_error();
