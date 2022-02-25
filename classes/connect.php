@@ -23,8 +23,9 @@ class connect
         echo "db= $db_inuse <br>";
         try {
             echo "certified";
-            $this->conn = @mysql_connect($this->servername,$this->username,$this->password);
+            $this->conn = mysql_connect($this->servername,$this->username,$this->password);
             if (true) {
+                echo "... pick a db";
                 @mysql_select_db($db_inuse,$this->conn);
                 $status = true;
             }
