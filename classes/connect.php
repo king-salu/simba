@@ -105,11 +105,11 @@ class connect
     {
         $result = array();
         echo "about connected... $query <br>";
-        $expected = htmlspecialchars($query, ENT_NOQUOTES);
+        htmlspecialchars($query, ENT_NOQUOTES);
         if ($this->connect_db()) {
-            echo " $expected :: connected!";
+            echo " $query :: connected!";
             try {
-                $res = mysqli_query($this->conn, $expected);
+                $res = mysqli_query($this->conn, $query);
                 //$result = mysqli_fetch_array($res);
             } catch (Exception $ex) {
                 echo "Query failed: " . $ex->getMessage();
