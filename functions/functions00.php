@@ -71,7 +71,7 @@ function save_userinfo($_userid, $rdata = array())
 
     if ($dqry != "") {
         echo $dqry; //die();
-        $connect->exec_nquery($dqry);
+        $connect->exec_query($dqry);
         $_status = true;
     }
 
