@@ -114,7 +114,7 @@ class connect
         if ($this->connect_db()) {
             echo " $expected :: connected!";
             try {
-                $res = mysqli_query($this->conn, $query);
+                $res = mysqli_query($this->conn, $expected);
                 //$result = mysqli_fetch_array($res);
             } catch (Exception $ex) {
                 echo "Query failed: " . $ex->getMessage();
