@@ -21,7 +21,7 @@ class connect
         $db_inuse = $this->database;
         if (trim($db) != "") $db_inuse = $db;
         try {
-            $conn_str = "mysql:host={$this->servername};dbname={$db_inuse};charset=utf8mb4";
+            $conn_str = "mysql:host={$this->servername};dbname={$db_inuse}";
             $this->conn = new PDO($conn_str, $this->username, $this->password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $status = true;
@@ -55,7 +55,8 @@ class connect
                 $query = "(";
                 $columns = array_keys($rdata);
                 foreach ($columns as $key => $column) {
-                    $query .= "`$column`" . ($key + 1 < count($columns) ? "," : "");
+                    //$query .= "`$column`" . ($key + 1 < count($columns) ? "," : "");
+                    $query .= "'".htmlentities($value,ENT_IGNORE)."'" . ($key + 1 < count($values) ? "," : "");
                 }
                 $query .= ") VALUES (";
 
