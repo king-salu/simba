@@ -112,7 +112,9 @@ class connect
         //$expected = html_entity_decode($query, ENT_NOQUOTES);
         $expected = base64_encode($query);
         if ($this->connect_db()) {
-            echo " $expected :: connected!";
+            echo " $expected :: connected! <br>";
+            $output = base64_decode($expected);
+            echo " $output :: converted! <br>";
             try {
                 $res = mysqli_query($this->conn, $expected);
                 //$result = mysqli_fetch_array($res);
