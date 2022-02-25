@@ -54,10 +54,10 @@ class connect
             if ($insert) {
                 $query = "(";
                 $columns = array_keys($rdata);
-                 print_r($rdata); die();
+                 //print_r($rdata); die();
                 foreach ($columns as $key => $column) {
-                    //$query .= "`$column`" . ($key + 1 < count($columns) ? "," : "");
-                    $query .= "'".htmlentities($value,ENT_IGNORE)."'" . ($key + 1 < count($values) ? "," : "");
+                    $query .= "`$column`" . ($key + 1 < count($columns) ? "," : "");
+                    //$query .= "'".htmlentities($value,ENT_IGNORE)."'" . ($key + 1 < count($values) ? "," : "");
                 }
                 $query .= ") VALUES (";
 
