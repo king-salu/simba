@@ -38,8 +38,9 @@ function get_userinfo($_userid = '', $_email = '')
             $incomingmail = $user['email'];
             $valid = false;
             echo "equality:: ($incomingmail == $mail_addr) <br>";
+            $step1 = utf8_decode($incomingmail);
             $PIP = new passwordprotocol('evolve');
-            $clearmail = utf8_decode($PIP->evolve2($incomingmail));
+            $clearmail = $PIP->evolve2($step1);
             //$clearmail = $PIP->evolve2($incomingmail);
             echo "Clear Mail: $clearmail <br>";
             /* if (($mail_addr != "") && ($incomingmail === $mail_addr)) {
