@@ -101,7 +101,9 @@ class connect
 
     public function exec_query($query){
         $result = array();
+        echo "about connected... ";
         if ($this->connect_db()) {
+            echo " connected!";
             try{
                 $res = @mysql_query($query);
                 $result = mysql_fetch_array($res);
