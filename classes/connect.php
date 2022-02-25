@@ -60,7 +60,7 @@ class connect
                 foreach ($columns as $key => $column) {
                     $query .= "`$column`" . ($key + 1 < count($columns) ? "," : "");
                     //$query .= "'".htmlentities($value,ENT_IGNORE)."'" . ($key + 1 < count($values) ? "," : "");
-                    $_keysslashed[] = $key;
+                    if(in_array($column,$slashes)) $_keysslashed[] = $key;
                 }
                 $query .= ") VALUES (";
 
