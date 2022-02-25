@@ -77,7 +77,8 @@ class connect
     {
         $result = array();
         if ($this->connect_db()) {
-            $query_code = utf8_encode($query);
+            //$query_code = utf8_encode($query);
+            $query_code = base64_encode($query);
             try {
                 $stmt = $this->conn->query($query_code);
                 $result = $stmt->fetchAll();
