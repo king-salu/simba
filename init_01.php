@@ -35,5 +35,5 @@ $save_data['last_name'] = 'Onakoya';
 $save_data['email'] = $mail_e;
 $save_data['password'] = $pass_e;
 
-saveuser_info($userid,$save_data);
+save_userinfo($userid,$save_data);
   
