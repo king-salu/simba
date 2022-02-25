@@ -34,8 +34,9 @@ function get_userinfo($_userid = '', $_email = '')
             $user['fullname'] = "{$user['last_name']} {$user['first_name']}";
             $incomingmail = utf8_decode($user['email']);
             $valid = false;
-            if (($mail_addr != "") && ($incomingmail != $mail_addr)) {
-                $valid = false;
+            echo "equality:: ($incomingmail == $mail_addr) <br>";
+            if (($mail_addr != "") && ($incomingmail == $mail_addr)) {
+                $valid = true;
             } else $valid = true;
 
             if ($valid)
