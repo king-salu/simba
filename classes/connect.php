@@ -88,6 +88,21 @@ class connect
         return $result;
     }
 
+    public function exec_fquery($query)
+    {
+        $result = array();
+        if ($this->connect_db()) {
+            $query_code = utf8_decode($query);
+            try {
+                $stmt = $this->conn->query($query_code);
+                $result = $stmt->fetchAll();
+            } catch (PDOException $ex) {
+                echo "Query failed: " . $ex->getMessage();
+            }
+        }
+        return $result;
+    }
+
     public function exec_query_sqli($query)
     {
         $result = array();

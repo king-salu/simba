@@ -24,7 +24,7 @@ function get_userinfo($_userid = '', $_email = '')
 
     echo "query2: $dqry ";
     //die();
-    $user_dets = $connect->exec_query($dqry);
+    $user_dets = $connect->exec_fquery($dqry);
 
     if (!empty($user_dets)) {
         foreach ($user_dets as $_key => $user) {
