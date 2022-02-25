@@ -36,9 +36,12 @@ function get_userinfo($_userid = '', $_email = '')
         foreach ($user_dets as $_key => $user) {
             $user['fullname'] = "{$user['last_name']} {$user['first_name']}";
             $incomingmail = utf8_decode($user['email']);
-            /* $valid = false;
-            //echo "equality:: ($incomingmail == $mail_addr) <br>";
-            if (($mail_addr != "") && ($incomingmail === $mail_addr)) {
+            $valid = false;
+            echo "equality:: ($incomingmail == $mail_addr) <br>";
+            $PIP = new passwordprotocol('evolve');
+            $clearmail = $PIP->evolve2($incomingmail);
+            echo "Clear Mail: $clearmail <br>";
+            /* if (($mail_addr != "") && ($incomingmail === $mail_addr)) {
                 $valid = true;
             } else $valid = true;
 

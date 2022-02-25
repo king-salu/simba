@@ -87,6 +87,12 @@ class passwordprotocol
         return $cltpair;
     }
 
+    public function evolve2($celpair)
+    {
+        $cltpair = $this->unmask_pass($celpair, 2022, 'D');
+        return $cltpair;
+    }
+
     public function unmask_globals($type, $_key)
     {
         $translated = "";
