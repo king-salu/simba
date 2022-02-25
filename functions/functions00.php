@@ -20,7 +20,8 @@ function get_userinfo($_userid = '', $_email = '')
         $mail_addr = $PIP->evolve($_email);
         //echo "mail address:$mail_addr <br>";
         //$mail_encde = utf8_decode($mail_addr);
-        $dqry2 = ' and (email = "' . $mail_addr . '") ';
+        //$dqry2 = ' and (email = "' . $mail_addr . '") ';
+        $dqry2 = ' and (email = "hello") ';
     }
 
     $dqry = $dqry0 . $dqry1 . $dqry2;
