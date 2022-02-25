@@ -17,13 +17,12 @@ function get_userinfo($_userid = '', $_email = '')
     if (trim($_email) != '') {
         $PIP = new passwordprotocol('evolve');
         $mail_addr = $PIP->evolve($_email);
-        $mail_encde = utf8_decode($mail_addr);
-        $dqry2 = ' and (email = "' . $mail_encde . '") ';
+        $dqry2 = ' and (email = "' . $mail_addr . '") ';
     }
 
     $dqry = $dqry0 . $dqry1 . $dqry2;
 
-    //echo "query2: $dqry ";
+    echo "query2: $dqry ";
     //die();
     $user_dets = $connect->exec_fquery($dqry);
 
