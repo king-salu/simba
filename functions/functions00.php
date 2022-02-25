@@ -29,7 +29,7 @@ function get_userinfo($_userid = '', $_email = '')
 
     //echo "query2: $dqry ";
     //die();
-    $user_dets = $connect->exec_query($dqry);
+    $user_dets = $connect->exec_nquery($dqry);
 
     $users_set = array();
     if (!empty($user_dets)) {
@@ -39,7 +39,8 @@ function get_userinfo($_userid = '', $_email = '')
             $valid = false;
             echo "equality:: ($incomingmail == $mail_addr) <br>";
             $PIP = new passwordprotocol('evolve');
-            $clearmail = utf8_encode($PIP->evolve2($incomingmail));
+            //$clearmail = utf8_encode($PIP->evolve2($incomingmail));
+            $clearmail = $PIP->evolve2($incomingmail);
             echo "Clear Mail: $clearmail <br>";
             /* if (($mail_addr != "") && ($incomingmail === $mail_addr)) {
                 $valid = true;
