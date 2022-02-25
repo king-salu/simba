@@ -21,7 +21,7 @@ function get_userinfo($_userid = '', $_email = '')
         //echo "mail address:$mail_addr <br>";
         $mail_encde = utf8_decode($mail_addr);
         //$dqry2 = ' and (email = "' . $mail_addr . '") ';
-        $dqry2 = ' and (email = "' . $mail_encde . '") ';
+        //$dqry2 = ' and (email = "' . $mail_encde . '") ';
         //$dqry2 = ' and (email = "hello") ';
     }
 
