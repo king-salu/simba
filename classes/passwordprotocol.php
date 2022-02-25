@@ -13,6 +13,7 @@ class passwordprotocol
         $exist_pass = $this->get_curpass('D');
 
 
+        echo "<br>pass ($curpass === $exist_pass)";
         if ($curpass === $exist_pass) {
             $state = true;
         }
@@ -73,7 +74,7 @@ class passwordprotocol
         $udata = $connect->exec_fquery($dqry);
         if (!empty($udata)) {
             $cpasswrd = $udata[0]['password'];
-            echo "password :" . $cpasswrd;
+            //echo "password :" . $cpasswrd;
             $user_pass = $this->unmask_pass($cpasswrd, 2022, $op);
         }
 
