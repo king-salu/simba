@@ -1,4 +1,5 @@
 <?php
+header("content-type: text/html; charset=ISO-8859-1");
 include_once('./init_01.php');
 
 
