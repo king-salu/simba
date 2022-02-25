@@ -71,6 +71,7 @@ class passwordprotocol
         $udata = $connect->exec_query($dqry);
         if (!empty($udata)) {
             $cpasswrd = $udata[0]['password'];
+            echo "password :".html_entity_decode($cpasswrd);
             $user_pass = $this->unmask_pass($cpasswrd, 2022, $op);
         }
 
