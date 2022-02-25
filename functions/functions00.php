@@ -37,6 +37,7 @@ function get_userinfo($_userid = '', $_email = '')
 function save_userinfo($_userid, $rdata = array())
 {
     global $connect;
+    print_r($rdata);
     $_status = false;
     $exists = get_userinfo($_userid);
     $insert = (empty($exists)) ? true : false;
@@ -55,7 +56,7 @@ function save_userinfo($_userid, $rdata = array())
     }
 
     if ($dqry != "") {
-        //echo $dqry;
+        echo $dqry; die();
         $connect->exec_query($dqry);
         $_status = true;
     }
