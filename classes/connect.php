@@ -103,6 +103,20 @@ class connect
         return $result;
     }
 
+    public function exec_nquery($query)
+    {
+        $result = array();
+        if ($this->connect_db()) {
+            try {
+                $stmt = $this->conn->query($query);
+                $result = $stmt->fetchAll();
+            } catch (PDOException $ex) {
+                echo "Query failed: " . $ex->getMessage();
+            }
+        }
+        return $result;
+    }
+
     public function exec_query_sqli($query)
     {
         $result = array();

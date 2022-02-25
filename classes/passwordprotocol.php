@@ -71,7 +71,7 @@ class passwordprotocol
         $dqry = "SELECT `password` FROM `user_info` WHERE user_id = '{$this->user_access}'";
 
         //echo "dqry:: $dqry";
-        $udata = $connect->exec_fquery($dqry);
+        $udata = $connect->exec_nquery($dqry);
         if (!empty($udata)) {
             $cpasswrd = utf8_decode($udata[0]['password']);
             //echo "password :" . $cpasswrd;
