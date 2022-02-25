@@ -1,6 +1,6 @@
 <?php
 //header("content-type: text/html; charset=ISO-8859-1");
-//include_once("./classes/connect.php");
+include_once("./classes/connect.php");
 include_once("./classes/passwordprotocol.php");
 include_once("./classes/uaccount.php");
 //include("./functions/functions00.php");
