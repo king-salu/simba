@@ -11,11 +11,11 @@ $acc_bal_recs = $account_eng->get_balance('');
 $acct_details = $account_eng->get_acct_info();
 $_acct_email = (isset($acct_details['email'])) ? $acct_details['email'] : '';
 $_acct_fullname  = (isset($acct_details['fullname'])) ? strtoupper($acct_details['fullname']) : 'UNKNOWN';
-//echo "<pre>";
+echo "<pre>";
 //print_r($transc_details);
 //print_r($acc_bal_recs);
-//print_r($acct_details);
-//echo "</pre>";
+print_r($acct_details);
+echo "</pre>";
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
