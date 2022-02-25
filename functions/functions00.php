@@ -22,7 +22,8 @@ function get_userinfo($_userid = '', $_email = '')
 
     $dqry = $dqry0 . $dqry1 . $dqry2;
 
-    //echo "query2: $dqry ";  die();
+    echo "query2: $dqry ";
+    die();
     $user_dets = $connect->exec_query($dqry);
 
     if (!empty($user_dets)) {
