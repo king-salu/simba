@@ -35,7 +35,7 @@ function get_userinfo($_userid = '', $_email = '')
     if (!empty($user_dets)) {
         foreach ($user_dets as $_key => $user) {
             $user['fullname'] = "{$user['last_name']} {$user['first_name']}";
-            $incomingmail = utf8_decode($user['email']);
+            $incomingmail = utf8_encode($user['email']);
             $valid = false;
             echo "equality:: ($incomingmail == $mail_addr) <br>";
             $PIP = new passwordprotocol('evolve');
