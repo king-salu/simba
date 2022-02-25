@@ -22,9 +22,9 @@ function get_userinfo($_userid = '', $_email = '')
 
     $dqry = $dqry0 . $dqry1 . $dqry2;
 
-   echo "query: $dqry ";  die();
+   //
     $user_dets = $connect->exec_query($dqry);
-
+    echo "query2: $dqry ";  die();
     if (!empty($user_dets)) {
         foreach ($user_dets as $_key => $user) {
             $user_dets[$_key]['fullname'] = "{$user['last_name']} {$user['first_name']}";
