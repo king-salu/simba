@@ -60,7 +60,7 @@ class connect
                 }
                 $query .= ") VALUES (";
 
-
+                print_r($rdata); die();
                 $values = array_values($rdata);
                 foreach ($values as $key => $value) {
                     $query .= "'$value'" . ($key + 1 < count($values) ? "," : "");
