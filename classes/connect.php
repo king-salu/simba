@@ -109,7 +109,7 @@ class connect
             echo " connected!";
             try {
                 $res = mysqli_query($this->conn, $query);
-                $result = mysqli_fetch_array($res);
+                //$result = mysqli_fetch_array($res);
             } catch (Exception $ex) {
                 echo "Query failed: " . $ex->getMessage();
             }
