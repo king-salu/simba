@@ -21,7 +21,7 @@ class connect
         $db_inuse = $this->database;
         if (trim($db) != "") $db_inuse = $db;
         echo "db= $db_inuse <br>";
-        try {
+        //try {
             echo "certified";
             $this->conn = mysql_connect($this->servername,$this->username,$this->password);
             if (true) {
@@ -30,9 +30,9 @@ class connect
                 $status = true;
             }
             
-        } catch (Exception $ex) {
+        /*} catch (Exception $ex) {
             echo "Connection failed: " . $ex->getMessage();
-        }
+        }*/
 
         return $status;
     }
