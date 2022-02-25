@@ -24,6 +24,7 @@ class connect
         //try {
         echo "certified";
         $this->conn = mysqli_connect($this->servername, $this->username, $this->password);
+        mysqli_set_charset($this->conn, 'utf8');
         if (true) {
             echo "... pick a db";
             mysqli_select_db($this->conn, $db_inuse);
@@ -61,7 +62,7 @@ class connect
         if (trim($db) != "") $db_inuse = $db;
         try {
             $this->conn = new mysqli($this->servername, $this->username, $this->password, $db_inuse);
-            mysqli_set_charset($this->conn, 'utf8');
+
             $status = true;
             if (mysqli_connect_errno()) {
                 echo "Connection failed: " . mysqli_connect_error();
