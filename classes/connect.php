@@ -114,6 +114,8 @@ class connect
                 echo "Query failed: " . $ex->getMessage();
             }
         }
+
+        return $result;
     }
 
     public static function generate_part_query($rdata, $insert = true)
