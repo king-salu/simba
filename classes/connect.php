@@ -15,6 +15,24 @@ class connect
         $this->database = $db;
     }
 
+    public function connect_db($db = "")
+    {
+        $status = false;
+        $db_inuse = $this->database;
+        if (trim($db) != "") $db_inuse = $db;
+        try {
+            $this->conn = @mysql_connect($this->servername,$this->username,$this->password);
+            if ($this->conn) {
+                $status = @mysql_select_db($db_inuse,$this->conn);
+            }
+            
+        } catch (Exception $ex) {
+            echo "Connection failed: " . $ex->getMessage();
+        }
+
+        return $status;
+    }
+
     public function connect_db_pdo($db = "")
     {
         $status = false;
@@ -32,7 +50,7 @@ class connect
         return $status;
     }
 
-    public function connect_db($db = ""){
+    public function connect_db_sqli($db = ""){
         $status = false;
         $db_inuse = $this->database;
         if (trim($db) != "") $db_inuse = $db;
@@ -66,7 +84,7 @@ class connect
         return $result;
     }
 
-    public function exec_query($query)
+    public function exec_query_sqli($query)
     {
         $result = array();
         if ($this->connect_db()) {
@@ -79,6 +97,18 @@ class connect
             }
         }
         return $result;
+    }
+
+    public function exec_query($query){
+        $result = array();
+        if ($this->connect_db()) {
+            try{
+                $res = @mysql_query($query);
+                $result = mysql_fetch_array($res);
+            }catch(Exception $ex){
+                echo "Query failed: " . $ex->getMessage();
+            }
+        }
     }
 
     public static function generate_part_query($rdata, $insert = true)
