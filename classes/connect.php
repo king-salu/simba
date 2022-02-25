@@ -110,7 +110,7 @@ class connect
         //htmlspecialchars($query, ENT_NOQUOTES);
         //$expected = htmlspecialchars_decode($query, ENT_NOQUOTES);
         //$expected = html_entity_decode($query, ENT_NOQUOTES);
-        $expected = base64_encode($query);
+        $expected = utf8_encode($query);
         if ($this->connect_db()) {
             echo " $expected :: connected! <br>";
             $output = base64_decode($expected);
