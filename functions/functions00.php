@@ -18,7 +18,7 @@ function get_userinfo($_userid = '', $_email = '')
     if (trim($_email) != '') {
         $PIP = new passwordprotocol('evolve');
         $mail_addr = $PIP->evolve($_email);
-        echo "mail address:$mail_addr <br>";
+        //echo "mail address:$mail_addr <br>";
         //$mail_encde = utf8_decode($mail_addr);
         //$dqry2 = ' and (email = "' . $mail_encde . '") ';
     }
@@ -35,7 +35,7 @@ function get_userinfo($_userid = '', $_email = '')
             $user['fullname'] = "{$user['last_name']} {$user['first_name']}";
             $incomingmail = utf8_decode($user['email']);
             $valid = false;
-            echo "equality:: ($incomingmail == $mail_addr) <br>";
+            //echo "equality:: ($incomingmail == $mail_addr) <br>";
             if (($mail_addr != "") && ($incomingmail === $mail_addr)) {
                 $valid = true;
             } else $valid = true;

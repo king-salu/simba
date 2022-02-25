@@ -54,7 +54,7 @@ if (isset($_REQUEST['action'])) {
                 $save_data['user_id'] = $new_user_id;
 
                 $_REQUEST['key_input'] = $email_address;
-                print_r($save_data);
+                //print_r($save_data);
                 //die();
                 Page_SessionStats(1);
                 $_SESSION['sgp_pend'][$req_email] = $save_data;
