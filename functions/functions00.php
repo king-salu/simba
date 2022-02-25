@@ -18,7 +18,7 @@ function get_userinfo($_userid = '', $_email = '')
         $PIP = new passwordprotocol('evolve');
         $mail_addr = $PIP->evolve($_email);
         echo "mail point: ".html_entity_decode($mail_addr);
-        $dqry2 = " and (email = '{$mail_addr}') ";
+        $dqry2 = " and (email = '".$mail_addr."') ";
     }
 
     $dqry = $dqry0 . $dqry1 . $dqry2;
