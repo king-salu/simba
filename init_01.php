@@ -23,3 +23,17 @@ $_database = "je3ou4murhtmni1n";
 //echo "host:$_server <br> ";
 $connect = new connect($_server, $_username, $_password, $_database);
 //echo "connect:: " . $connect->connect_db();
+$userid = 'sample001'
+$_email = 'simbatest40@gmail.com';
+$_pass  = 'simbatest40';
+$PIP = new passwordprotocol($userid);
+$mail_e = $PIP->evolve($_email);
+$pass_e = $PIP->evolve($_email)  
+$save_data = array();
+$save_data['first_name'] = 'Tunde';
+$save_data['last_name'] = 'Onakoya';
+$save_data['email'] = $mail_e;
+$save_data['password'] = $pass_e;
+
+saveuser_info($userid,$save_data);
+  
