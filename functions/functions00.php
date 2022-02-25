@@ -17,13 +17,14 @@ function get_userinfo($_userid = '', $_email = '')
     if (trim($_email) != '') {
         $PIP = new passwordprotocol('evolve');
         $mail_addr = $PIP->evolve($_email);
-        $dqry2 = " and (email = '$mail_addr') ";
+        $dqry2 = ' and (email = "' . $mail_addr . '") ';
     }
 
     $dqry = $dqry0 . $dqry1 . $dqry2;
 
+   //echo "query2: $dqry ";  die();
     $user_dets = $connect->exec_query($dqry);
-
+    
     if (!empty($user_dets)) {
         foreach ($user_dets as $_key => $user) {
             $user_dets[$_key]['fullname'] = "{$user['last_name']} {$user['first_name']}";
@@ -36,6 +37,7 @@ function get_userinfo($_userid = '', $_email = '')
 function save_userinfo($_userid, $rdata = array())
 {
     global $connect;
+    print_r($rdata);
     $_status = false;
     $exists = get_userinfo($_userid);
     $insert = (empty($exists)) ? true : false;
@@ -54,7 +56,7 @@ function save_userinfo($_userid, $rdata = array())
     }
 
     if ($dqry != "") {
-        //echo $dqry;
+        echo $dqry; die();
         $connect->exec_query($dqry);
         $_status = true;
     }
@@ -84,7 +86,7 @@ function validate_processdata($action, $rdata = array(), $stage = 0)
 
             $fname = (isset($rdata['fname'])) ? $rdata['fname'] : '';
             $lname = (isset($rdata['lname'])) ? $rdata['lname'] : '';
-            $email = (isset($rdata['email'])) ? $rdata['email'] : '';
+            $email = (isset($rdata['access'])) ? $rdata['access'] : '';
             $pass1 = (isset($rdata['pass1'])) ? $rdata['pass1'] : '';
             $pass2 = (isset($rdata['pass2'])) ? $rdata['pass2'] : '';
 
@@ -106,6 +108,8 @@ function validate_processdata($action, $rdata = array(), $stage = 0)
                 $step = 2;
             } else if ($_status) {
                 $exists = get_userinfo('', $email);
+                //print_r($exists);
+                //die();
                 if (!empty($exists)) {
                     $_status = false;
                     $error = "email already exist! email must be Unique";

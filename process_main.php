@@ -17,6 +17,7 @@ if (isset($_REQUEST['action'])) {
                 $req_password = (isset($_REQUEST['password'])) ? $_REQUEST['password'] : '';
 
                 $user_dets = get_userinfo('', $req_email);
+                print_r($user_dets);
                 if (!empty($user_dets)) {
                     $user_id_inuse = $user_dets[0]['user_id'];
                     $PIP = new passwordprotocol($user_id_inuse);
@@ -34,11 +35,10 @@ if (isset($_REQUEST['action'])) {
 
         case "signup":
             $validatei = validate_processdata($req_action, $_REQUEST);
-            //print_r($validatei);
             if ($validatei[0]) {
                 $req_fname = (isset($_REQUEST['fname'])) ? $_REQUEST['fname'] : '';
                 $req_lname = (isset($_REQUEST['lname'])) ? $_REQUEST['lname'] : '';
-                $req_email = (isset($_REQUEST['email'])) ? $_REQUEST['email'] : '';
+                $req_email = (isset($_REQUEST['access'])) ? $_REQUEST['access'] : '';
                 $req_pass1 = (isset($_REQUEST['pass1'])) ? $_REQUEST['pass1'] : '';
 
                 $new_user_id = gen_user_id();
@@ -54,6 +54,8 @@ if (isset($_REQUEST['action'])) {
                 $save_data['user_id'] = $new_user_id;
 
                 $_REQUEST['key_input'] = $email_address;
+                //print_r($save_data);
+                //die();
                 Page_SessionStats(1);
                 $_SESSION['sgp_pend'][$req_email] = $save_data;
                 $action_status = true; //save_userinfo($new_user_id, $save_data);

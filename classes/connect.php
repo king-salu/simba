@@ -36,8 +36,13 @@ class connect
     {
         $result = array();
         if ($this->connect_db()) {
+            try{
             $stmt = $this->conn->query($query);
             $result = $stmt->fetchAll();
+            }
+            catch(PDOException $ex){
+                echo "Query failed: " . $ex->getMessage();
+            }
         }
         return $result;
     }
@@ -45,18 +50,24 @@ class connect
     public static function generate_part_query($rdata, $insert = true)
     {
         $query = "";
+        $slashes = array('email','password'); 
         if (!empty($rdata)) {
             if ($insert) {
+                $_keysslashed = array();
                 $query = "(";
                 $columns = array_keys($rdata);
+                 //print_r($rdata); die();
                 foreach ($columns as $key => $column) {
                     $query .= "`$column`" . ($key + 1 < count($columns) ? "," : "");
+                    //$query .= "'".htmlentities($value,ENT_IGNORE)."'" . ($key + 1 < count($values) ? "," : "");
+                    $_keysslashed[] = $key;
                 }
                 $query .= ") VALUES (";
 
-
+               
                 $values = array_values($rdata);
-                foreach ($values as $key => $value) {
+                foreach ($values as $key => ) {
+                    $value  = (in_array($key,$_keysslashed))? addslashes($value) : $value;
                     $query .= "'$value'" . ($key + 1 < count($values) ? "," : "");
                 }
 
@@ -65,6 +76,7 @@ class connect
                 $query = " SET ";
                 $index = 0;
                 foreach ($rdata as $column => $value) {
+                    $value  = (in_array($column,$slashes))? addslashes($value) : $value;
                     $query .= " `$column` = '$value' " . ($index + 1 < count($rdata) ? "," : "");
                     $index++;
                 }
