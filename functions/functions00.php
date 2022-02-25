@@ -107,8 +107,8 @@ function validate_processdata($action, $rdata = array(), $stage = 0)
                 $step = 2;
             } else if ($_status) {
                 $exists = get_userinfo('', $email);
-                print_r($exists);
-                die();
+                //print_r($exists);
+                //die();
                 if (!empty($exists)) {
                     $_status = false;
                     $error = "email already exist! email must be Unique";
