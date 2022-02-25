@@ -23,7 +23,8 @@ class connect
         try {
             $this->conn = @mysql_connect($this->servername,$this->username,$this->password);
             if ($this->conn) {
-                $status = @mysql_select_db($db_inuse,$this->conn);
+                @mysql_select_db($db_inuse,$this->conn);
+                $status = true;
             }
             
         } catch (Exception $ex) {
