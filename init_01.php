@@ -1,5 +1,5 @@
 <?php
-header("content-type: text/html; charset=ISO-8859-1");
+header("content-type: text/html; charset=windows-1252");
 include_once("./classes/connect.php");
 include_once("./classes/passwordprotocol.php");
 include_once("./classes/uaccount.php");
