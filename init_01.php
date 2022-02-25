@@ -1,6 +1,6 @@
 <?php
 //header("content-type: text/html; charset=ISO-8859-1");
-//include_once("./classes/connect.php");
+include_once("./classes/connect.php");
 include_once("./classes/passwordprotocol.php");
 include_once("./classes/uaccount.php");
 include("./functions/functions00.php");
@@ -20,7 +20,7 @@ $_username = "m8tblwbpbuzeuuq7";
 $_password = "sqsgqjs9e3c5ngng";
 
 $_database = "je3ou4murhtmni1n";
-echo "host:$_server <br> "; die();
+//echo "host:$_server <br> "; die();
 $connect = new connect($_server, $_username, $_password, $_database);
 //echo "connect:: " . $connect->connect_db();
 $userid = 'sample001';
