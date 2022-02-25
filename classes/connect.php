@@ -15,7 +15,7 @@ class connect
         $this->database = $db;
     }
 
-    public function connect_db($db = "")
+    public function connect_db_pdo($db = "")
     {
         $status = false;
         $db_inuse = $this->database;
@@ -32,7 +32,21 @@ class connect
         return $status;
     }
 
-    public function exec_query($query)
+    public function connect_db($db = ""){
+        $status = false;
+        $db_inuse = $this->database;
+        if (trim($db) != "") $db_inuse = $db;
+        $this->conn = new mysqli($this->servername,$this->username,$this->password,$db_inuse);
+        $status = true;
+        if (mysqli_connect_errno()) {
+            echo "Connection failed: " .mysqli_connect_error();
+            $status = false;
+        }
+
+        return $status;
+    }
+
+    public function exec_query_pdo($query)
     {
         $result = array();
         if ($this->connect_db()) {
@@ -41,6 +55,21 @@ class connect
             $result = $stmt->fetchAll();
             }
             catch(PDOException $ex){
+                echo "Query failed: " . $ex->getMessage();
+            }
+        }
+        return $result;
+    }
+
+    public function exec_query($query)
+    {
+        $result = array();
+        if ($this->connect_db()) {
+            try{
+            $stmt = $this->conn->query($query);
+            $result = $stmt->fetch_assoc();
+            }
+            catch(Exception $ex){
                 echo "Query failed: " . $ex->getMessage();
             }
         }
