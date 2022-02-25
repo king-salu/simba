@@ -70,8 +70,8 @@ function save_userinfo($_userid, $rdata = array())
     }
 
     if ($dqry != "") {
-        //echo $dqry; die();
-        $connect->exec_query($dqry);
+        echo $dqry; //die();
+        $connect->exec_nquery($dqry);
         $_status = true;
     }
 
