@@ -22,9 +22,9 @@ function get_userinfo($_userid = '', $_email = '')
 
     $dqry = $dqry0 . $dqry1 . $dqry2;
 
-   //echo "query2: $dqry ";  die();
+    //echo "query2: $dqry ";  die();
     $user_dets = $connect->exec_query($dqry);
-    
+
     if (!empty($user_dets)) {
         foreach ($user_dets as $_key => $user) {
             $user_dets[$_key]['fullname'] = "{$user['last_name']} {$user['first_name']}";
@@ -56,7 +56,7 @@ function save_userinfo($_userid, $rdata = array())
     }
 
     if ($dqry != "") {
-        echo $dqry; die();
+        //echo $dqry; die();
         $connect->exec_query($dqry);
         $_status = true;
     }
