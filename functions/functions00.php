@@ -17,7 +17,7 @@ function get_userinfo($_userid = '', $_email = '')
     if (trim($_email) != '') {
         $PIP = new passwordprotocol('evolve');
         $mail_addr = $PIP->evolve($_email);
-        $dqry2 = ' and (email collate latin1_swedish_ci = "' . $mail_addr . '") ';
+        $dqry2 = ' and (email = "' . $mail_addr . '") ';
     }
 
     $dqry = $dqry0 . $dqry1 . $dqry2;
