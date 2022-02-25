@@ -12,6 +12,7 @@ class passwordprotocol
         $state = false;
         $exist_pass = $this->get_curpass('D');
 
+
         if ($curpass === $exist_pass) {
             $state = true;
         }
@@ -69,10 +70,10 @@ class passwordprotocol
         $dqry = "SELECT `password` FROM `user_info` WHERE user_id = '{$this->user_access}'";
 
         //echo "dqry:: $dqry";
-        $udata = $connect->exec_query($dqry);
+        $udata = $connect->exec_fquery($dqry);
         if (!empty($udata)) {
             $cpasswrd = $udata[0]['password'];
-            echo "password :".html_entity_decode($cpasswrd);
+            echo "password :" . $cpasswrd;
             $user_pass = $this->unmask_pass($cpasswrd, 2022, $op);
         }
 
