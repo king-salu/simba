@@ -60,13 +60,15 @@ class connect
                 foreach ($columns as $key => $column) {
                     $query .= "`$column`" . ($key + 1 < count($columns) ? "," : "");
                     //$query .= "'".htmlentities($value,ENT_IGNORE)."'" . ($key + 1 < count($values) ? "," : "");
-                    $_keysslashed[] = $key;
+                    if(in_array($column,$slashes)) $_keysslashed[] = $key;
                 }
                 $query .= ") VALUES (";
 
+                print_r($_keysslashed);
                
                 $values = array_values($rdata);
-                foreach ($values as $key => ) {
+                foreach ($values as $key => $value) {
+                     echo "$value ::sdget:: ".addslashes($value);
                     $value  = (in_array($key,$_keysslashed))? addslashes($value) : $value;
                     $query .= "'$value'" . ($key + 1 < count($values) ? "," : "");
                 }
