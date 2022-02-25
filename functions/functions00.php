@@ -14,6 +14,7 @@ function get_userinfo($_userid = '', $_email = '')
     }
 
     $dqry2 = "";
+    $mail_addr = "";
     if (trim($_email) != '') {
         $PIP = new passwordprotocol('evolve');
         $mail_addr = $PIP->evolve($_email);
@@ -27,13 +28,22 @@ function get_userinfo($_userid = '', $_email = '')
     //die();
     $user_dets = $connect->exec_fquery($dqry);
 
+    $users_set = array();
     if (!empty($user_dets)) {
         foreach ($user_dets as $_key => $user) {
-            $user_dets[$_key]['fullname'] = "{$user['last_name']} {$user['first_name']}";
+            $user['fullname'] = "{$user['last_name']} {$user['first_name']}";
+            $incomingmail = $user['email'];
+            $valid = false;
+            if (($mail_addr != "") && ($incomingmail == $mail_addr)) {
+                $valid = false;
+            } else $valid = true;
+
+            if ($valid)
+                $users_set[] = $user;
         }
     }
 
-    return $user_dets;
+    return $users_set;
 }
 
 function save_userinfo($_userid, $rdata = array())
