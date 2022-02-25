@@ -24,7 +24,7 @@ class connect
         //try {
         echo "certified";
         $this->conn = mysqli_connect($this->servername, $this->username, $this->password);
-        mysqli_set_charset($this->conn, 'utf8');
+        //mysqli_set_charset($this->conn, 'utf8');
         if (true) {
             echo "... pick a db";
             mysqli_select_db($this->conn, $db_inuse);
@@ -107,9 +107,10 @@ class connect
     {
         $result = array();
         echo "about connected... $query <br>";
-        htmlspecialchars($query, ENT_NOQUOTES);
+        //htmlspecialchars($query, ENT_NOQUOTES);
+        $expected = html_entity_decode($query, ENT_NOQUOTES);
         if ($this->connect_db()) {
-            echo " $query :: connected!";
+            echo " $expected :: connected!";
             try {
                 $res = mysqli_query($this->conn, $query);
                 //$result = mysqli_fetch_array($res);
