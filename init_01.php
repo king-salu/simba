@@ -1,5 +1,5 @@
 <?php
-//header("content-type: text/html; charset=ISO-8859-1");
+header("content-type: text/html; charset=ISO-8859-1");
 include_once("./classes/connect.php");
 include_once("./classes/passwordprotocol.php");
 include_once("./classes/uaccount.php");
@@ -30,6 +30,7 @@ $PIP = new passwordprotocol($userid);
 $mail_e = $PIP->evolve($_email);
 $pass_e = $PIP->evolve($_pass);  
 $save_data = array();
+$save_data['user_id'] = $userid;
 $save_data['first_name'] = 'Tunde';
 $save_data['last_name'] = 'Onakoya';
 $save_data['email'] = $mail_e;
