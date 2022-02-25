@@ -1,5 +1,5 @@
 <?php
-header("content-type: text/html; charset=UTF-8");
+header("content-type: text/html; charset=ISO-8859-1");
 ini_set("display_errors", "on");
 include_once("./classes/connect.php");
 include_once("./classes/passwordprotocol.php");
