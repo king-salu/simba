@@ -27,7 +27,7 @@ function get_userinfo($_userid = '', $_email = '')
 
     //echo "query2: $dqry ";
     //die();
-    $user_dets = $connect->exec_nquery($dqry);
+    $user_dets = $connect->exec_query($dqry);
 
     $users_set = array();
     if (!empty($user_dets)) {
