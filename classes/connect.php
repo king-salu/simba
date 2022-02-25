@@ -108,7 +108,8 @@ class connect
         $result = array();
         echo "about connected... $query <br>";
         //htmlspecialchars($query, ENT_NOQUOTES);
-        $expected = html_entity_decode($query, ENT_NOQUOTES);
+        $expected = htmlspecialchars_decode($query, ENT_NOQUOTES);
+        //$expected = html_entity_decode($query, ENT_NOQUOTES);
         if ($this->connect_db()) {
             echo " $expected :: connected!";
             try {
