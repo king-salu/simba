@@ -68,6 +68,7 @@ class passwordprotocol
 
         $dqry = "SELECT `password` FROM `user_info` WHERE user_id = '{$this->user_access}'";
 
+        echo "dqry:: $dqry";
         $udata = $connect->exec_query($dqry);
         if (!empty($udata)) {
             $cpasswrd = $udata[0]['password'];
