@@ -20,7 +20,9 @@ class connect
         $status = false;
         $db_inuse = $this->database;
         if (trim($db) != "") $db_inuse = $db;
+        echo "db= $db_inuse <br>";
         try {
+            echo "certified";
             $this->conn = @mysql_connect($this->servername,$this->username,$this->password);
             if (true) {
                 @mysql_select_db($db_inuse,$this->conn);
