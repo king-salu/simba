@@ -22,7 +22,7 @@ class connect
         if (trim($db) != "") $db_inuse = $db;
         try {
             $this->conn = @mysql_connect($this->servername,$this->username,$this->password);
-            if ($this->conn) {
+            if (true) {
                 @mysql_select_db($db_inuse,$this->conn);
                 $status = true;
             }
