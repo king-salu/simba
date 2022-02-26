@@ -41,7 +41,7 @@ $("form[name='transc_form']").on("submit", function(e){
 function Page_setup(){
 
     $pend_data = getCookie("SIMBA_PENDU");
-    alert($pend_data);
+    //alert($pend_data);
     if(($pend_data!=null) &&($pend_data!="")){
         $('#transc_dep').prop('checked',true);
         $('#transc_dep').change();
@@ -53,7 +53,7 @@ function Page_setup(){
     }
     else{
         var usr_logged = getCookie("SIMBA_logU");
-        alert(usr_logged)
+        //alert(usr_logged)
         if((usr_logged==null) || (usr_logged=="")){
             location.href = './login.html';
         }
